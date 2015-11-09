@@ -9,7 +9,11 @@ import android.widget.Button;
 
 import java.util.Random;
 
+//import static com.integrityinovations.randomfact.FactBook.*;
+
 public class randomFactActivity extends AppCompatActivity {
+
+    private FactBook mFactBook = new FactBook();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +26,12 @@ public class randomFactActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // the button was clicked, so update the fact label with a new fact
-                String fact;
-                // randomly select a fact
-                // construct a new random number generator
-                Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.nextInt(3);
-                fact = randomNumber + "";
+                String fact = FactBook.getFact();
                 // update the label with our dynamic fact
                 factLabel.setText(fact);
             }
         };
         showFactButton.setOnClickListener(listener);
-
 
     }
 }
