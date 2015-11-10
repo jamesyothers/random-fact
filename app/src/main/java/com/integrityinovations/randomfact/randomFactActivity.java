@@ -16,7 +16,7 @@ public class randomFactActivity extends AppCompatActivity {
 
         // declare our view variables and assign them the views from the layout file
         final TextView factLabel = (TextView) findViewById(R.id.factTextView);
-        Button showFactButton = (Button) findViewById(R.id.showFactButton);
+        final Button showFactButton = (Button) findViewById(R.id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -25,7 +25,8 @@ public class randomFactActivity extends AppCompatActivity {
                 int color = ColorWheel.getColor();
                 // update the label with our dynamic fact
                 factLabel.setText(fact);
-                relativeLayout.setBackgroundColor(ColorWheel.getColor());
+                relativeLayout.setBackgroundColor(color);
+                showFactButton.setTextColor(color);
             }
         };
         showFactButton.setOnClickListener(listener);
